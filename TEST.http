@@ -1,0 +1,111 @@
+@ServerURL = http://localhost:8080
+@Authorization:  = Bearer 09ec43b1cead14251ab7777e71cb9a0a
+
+POST {{ServerURL}}/login
+Content-Type: application/x-www-form-urlencoded
+
+username=test1&password=password
+
+###
+
+GET {{ServerURL}}/users?minCredit=9&sort=credit
+
+###
+
+GET {{ServerURL}}/demo/users?minCredit=10 
+
+###
+
+GET {{ServerURL}}/demo/tables
+
+###
+
+GET {{ServerURL}}/demo/news
+
+###
+
+GET {{ServerURL}}/users/3
+Authorization: {{Authorization:}}
+
+###
+
+DELETE {{ServerURL}}/users/2
+
+###
+
+POST {{ServerURL}}/users
+Authorization: {{Authorization:}}
+Content-Type: application/json
+
+{
+    "username": "test5",
+    "password": "password",
+    "name": "Test5 Surname",
+    "email": "test5@email.com",
+    "credit": 10,
+    "registerDate": "2021-01-01"
+}
+
+###
+
+POST {{ServerURL}}/users
+Content-Type: application/json
+
+{
+    "username": "test2",
+    "password": "password",
+    "name": "Test2 Surname",
+    "email": "test2@email.com",
+    "credit": 100,
+    "registerDate": "2021-01-01"
+}
+
+###
+
+PUT {{ServerURL}}/users/3
+Content-Type: application/json
+
+{
+    "name": "Test2 EDITED"
+}
+
+###
+
+POST {{ServerURL}}/users/1/posts
+Content-Type: application/json
+
+{
+    "content": "post by user 2",
+    "likes": 2
+}
+
+###
+
+GET {{ServerURL}}/posts
+
+###
+
+GET {{ServerURL}}/users/1/posts
+
+###
+
+GET {{ServerURL}}/users/1/posts/1
+
+###
+
+PUT {{ServerURL}}/users/1/posts/1
+Content-Type: application/json
+
+{
+    "content": "post by user 1 EDITED",
+    "likes": 10
+}
+
+###
+
+DELETE {{ServerURL}}/users/1/posts/2
+
+###
+
+GET {{ServerURL}}/rest/users
+
